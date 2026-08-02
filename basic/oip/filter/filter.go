@@ -1,6 +1,6 @@
 package filter
 
-import "shy/go/basic/basic/oip/common"
+import "shy/go_basic/basic/oip/common"
 
 type Filter interface {
 	Filter([]*common.Product) []*common.Product //传入一批商品，返回过滤之后的商品

@@ -3,10 +3,10 @@ package main
 import (
 	"fmt"
 	"log"
-	"shy/go/basic/basic/oip/common"
-	"shy/go/basic/basic/oip/filter"
-	"shy/go/basic/basic/oip/recall"
-	"shy/go/basic/basic/oip/sort"
+	"shy/go_basic/basic/oip/common"
+	"shy/go_basic/basic/oip/filter"
+	"shy/go_basic/basic/oip/recall"
+	"shy/go_basic/basic/oip/sort"
 	"time"
 )
 

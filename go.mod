@@ -1,3 +1,3 @@
-module shy/go/basic
+module shy/go_basic
 
 go 1.25.5

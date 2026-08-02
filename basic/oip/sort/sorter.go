@@ -1,6 +1,6 @@
 package sort
 
-import "shy/go/basic/basic/oip/common"
+import "shy/go_basic/basic/oip/common"
 
 type Sorter interface {
 	Sort([]*common.Product) []*common.Product //传入一批商品，返回排序之后的商品

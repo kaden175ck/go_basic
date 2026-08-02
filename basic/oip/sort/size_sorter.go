@@ -1,7 +1,7 @@
 package sort
 
 import (
-	"shy/go/basic/basic/oip/common"
+	"shy/go_basic/basic/oip/common"
 	"sort"
 )
 

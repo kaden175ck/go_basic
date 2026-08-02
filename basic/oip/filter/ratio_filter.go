@@ -1,6 +1,6 @@
 package filter
 
-import "shy/go/basic/basic/oip/common"
+import "shy/go_basic/basic/oip/common"
 
 type RatioFilter struct {
 	Tag string
