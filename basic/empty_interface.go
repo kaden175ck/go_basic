@@ -20,7 +20,7 @@ func SumI(args ...EmptyInterface) int {
 	return rect
 }
 
-func main25() {
+func main30() {
 	// 空接口的典型应用场景
 	fmt.Println()
 	fmt.Println(1)
