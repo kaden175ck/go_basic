@@ -10,8 +10,10 @@ func main28() {
 	}
 	// 没给f2赋值，此时f2为nil，如果调用f2会发生空指针异常
 
+	// 函数类型的变量，这里使用一下。因为返回两个值，所以随意用两个值来承接一下
 	i, p := f1(1, 2, "3", false)
 	_, _ = i, p
+	// 用一下这两个变量
 
 	type ConnectionPool struct {
 		Servers      []string
@@ -21,9 +23,11 @@ func main28() {
 	cp := ConnectionPool{
 		Servers:      []string{"127.0.0.1:1234", "127.0.0.1:5678"},
 		LoadBalancer: f2,
+		//这里如果用了f2就会发生空指针异常，因为f2没有被赋值
 	}
 	_ = cp
-	// cp.LoadBalancer(1, 2, "3", false)  // nil pointer dereference
+	// cp.LoadBalancer(1, 2, "3", false) // nil pointer dereference
+	// _ = f2
 
 	type ConnectionPool2 struct {
 		Servers      []string
