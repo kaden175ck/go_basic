@@ -23,8 +23,8 @@ func allEmptyStructIsSame() {
 func scenariosOfEmptyStruct() {
 	set := map[int]struct{}{
 		1: {},
-		4: {},
-		7: {},
+		4: struct{}{},
+		7: struct{}{},
 	}
 	if _, exists := set[5]; exists {
 		fmt.Println("5是存在的")
@@ -32,13 +32,19 @@ func scenariosOfEmptyStruct() {
 		fmt.Println("5是不存在的")
 	}
 
+	// 通过这种方式可以实现主协程等待子协程的目的
+	// 创建一个 channel，空的，容量为0，
 	blocker := make(chan struct{})
 	go func() {
+		// 等待子协程2秒，然后打印done
 		time.Sleep(2 * time.Second)
 		fmt.Println("done")
+		// 子协程完了之后，往channel写入这个空结构体，因为我们根本不关心是什么东西，使用空结构体还不占内存
+		// 所以我们channel里面的数据类型就用struct{}这个空结构体
 		blocker <- ETS{}
 	}()
-	<-blocker //等待子协程结束
+	<-blocker //主协程去读取channel，因为如果里面没有东西，读操作会阻塞，所以有东西的时候子协程run完了，主协程才会退出
+	//通过这种方式就可以实现主协程等待子协程完成的目的
 }
 
 func main31() {
