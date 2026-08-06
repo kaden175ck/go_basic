@@ -17,7 +17,7 @@ type MyError struct {
 	Desc string
 }
 
-// 构造函数
+// 构造函数，返回指针节省内存空间
 func NewMyError(name string, code int, desc string) *MyError {
 	return &MyError{
 		Name: name,
@@ -25,6 +25,7 @@ func NewMyError(name string, code int, desc string) *MyError {
 		Desc: desc,
 	}
 
+	//另外一种构造方式和上面一样效果
 	// err:=new(NewMyError)
 	// err.Name=name
 	// err.Code=code
@@ -38,17 +39,22 @@ func (e MyError) Error() string {
 }
 
 // Print对象时默认会调用对象的String()方法。error是个例外
-func (e MyError) String() string {
-	return e.Name
-}
+// 他会找实现error接口的方法跑
+// func (e MyError) String() string {
+// 	return e.Name
+// }
 
 // 函数有多个返回值时，error通常是最后一个
 func divide(a, b int) (int, error) {
 	if b == 0 {
-		// return 0, &MyError{}
+		// return 0, &MyError{
+		// 	Name: "math",
+		// 	Code: 101,
+		// 	Desc: "divide by zero",
+		// }
 		return 0, NewMyError("math", 101, "divide by zero")
-		// return 0, ErrNotFound
-		// return 0, ErrServer
+		// return 0, ErrNotFound  这两个很好理解
+		// return 0, ErrServer 这两个很好理解
 		// return 0, fmt.Errorf("divide error %d %d", a, b)
 	} else {
 		return a / b, nil
@@ -56,12 +62,13 @@ func divide(a, b int) (int, error) {
 }
 
 func main32() {
-	fmt.Println(NewMyError("math", 101, "divide by zero"))
+	err2 := NewMyError("math", 102, "divide by zero")
+	fmt.Printf("%s\n", err2)
 
 	c, err := divide(5, 0)
 	if err != nil {
 		fmt.Printf("出错 %s\n", err) //默认会调用err.Error()
-		fmt.Printf("出错 %s\n", err.Error())
+		// fmt.Printf("出错 %s\n", err.Error())
 	} else {
 		fmt.Printf("结果 %d\n", c)
 	}
