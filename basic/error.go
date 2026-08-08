@@ -34,6 +34,8 @@ func NewMyError(name string, code int, desc string) *MyError {
 }
 
 // 拥有Error() string即实现了error接口。Print error时默认会调用error的Error()方法
+// 如果把这里加一个指针符号*MyError，那就是结构体指针实现了error方法，不是结构体本身，所以到时候第51行要加取地址符号
+// 否则就是第58行，不用加&符号，直接传实例就好
 func (e MyError) Error() string {
 	return fmt.Sprintf("[%d]%s: %s", e.Code, e.Name, e.Desc)
 }
@@ -52,7 +54,10 @@ func divide(a, b int) (int, error) {
 		// 	Code: 101,
 		// 	Desc: "divide by zero",
 		// }
+
+		// return 0, MyError{}
 		return 0, NewMyError("math", 101, "divide by zero")
+		// 这个函数本身就返回的是一个指针，所以如果第39行当时加了指针func (e *MyError) Error() string {}用59行也可以
 		// return 0, ErrNotFound  这两个很好理解
 		// return 0, ErrServer 这两个很好理解
 		// return 0, fmt.Errorf("divide error %d %d", a, b)
