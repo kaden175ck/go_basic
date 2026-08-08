@@ -8,7 +8,7 @@ import (
 
 // 演示%w和errors.Is()
 func errorWrap() {
-	a := errors.New("大乔乔")
+	a := errors.New("SHY官方自带的error包下的new函数new的一个error信息")
 	b := fmt.Errorf("%w", a)
 	c := fmt.Errorf("123 %w abc", b)
 	fmt.Printf("%t\n", errors.Is(c, a)) //true
