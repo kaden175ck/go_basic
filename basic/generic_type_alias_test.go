@@ -1,13 +1,12 @@
-package v24_test
+package main
 
 import (
-	v24 "dqq/go/basic/v24"
 	"fmt"
 	"testing"
 )
 
 func TestSet(t *testing.T) {
-	set := v24.NewSet[int](10)
+	set := NewSet[int](10)
 	set.Add(2)
 	set.Add(4)
 	set.Add(6)
