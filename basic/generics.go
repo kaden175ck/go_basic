@@ -42,9 +42,12 @@ func httpRPC[T GetUserRequest | GetBookRequest](request T) {
 	http.Post(url, "application/json", bytes.NewReader(bs))
 }
 
-func main39() {
-	httpRPC(GetUserRequest{})
+func main() {
+	// httpRPC(GetUserRequest{})
 
+	//创建一个结构体实例
 	a := Apple[int32]{}
+
+	// 通过a去调用这个结构体方法
 	a.getBigger(3, 6)
 }
