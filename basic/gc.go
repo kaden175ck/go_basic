@@ -109,7 +109,7 @@ func performMemoryIntensiveTask(task int) int {
 	return result
 }
 
-func main27() {
+func main41() {
 	stack_heap()
 	// gc() // 程序运行完之后生成一个文件data/trace.out, 然后执行 go tool trace data/trace.out
 }
