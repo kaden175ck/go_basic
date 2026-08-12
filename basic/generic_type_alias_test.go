@@ -31,7 +31,7 @@ func TestSet(t *testing.T) {
 }
 
 func BenchmarkSet(b *testing.B) {
-	set := v24.NewSet[int](10)
+	set := NewSet[int](10)
 	set.Add(2)
 	set.Add(4)
 	set.Add(6)
