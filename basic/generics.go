@@ -42,7 +42,7 @@ func httpRPC[T GetUserRequest | GetBookRequest](request T) {
 	http.Post(url, "application/json", bytes.NewReader(bs))
 }
 
-func main() {
+func main39() {
 	// httpRPC(GetUserRequest{})
 
 	//创建一个结构体实例
