@@ -25,7 +25,7 @@ func TestSet(t *testing.T) {
 		t.Fail()
 	}
 
-	set.Range(func(a int) {
+	set.ForEach(func(a int) {
 		fmt.Printf("%d\n", a)
 	})
 }
