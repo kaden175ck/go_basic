@@ -48,9 +48,9 @@ func BenchmarkSet(b *testing.B) {
 	}
 }
 
-// go test -v ./basic -run=^TestSet$ -count=1
-// go test ./basic -bench=^BenchmarkSet$ -run=^$
+// go test -v ./basic/generics -run=^TestSet$ -count=1
+// go test ./basic/generics -bench=^BenchmarkSet$ -run=^$
 //
-// cd basic
+// cd basic/generics
 // go test -v -run=^TestSet$ -count=1
 // go test -bench=^BenchmarkSet$ -run=^$
