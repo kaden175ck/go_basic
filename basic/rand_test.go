@@ -36,9 +36,10 @@ func TestRandSeed(t *testing.T) {
 	}
 }
 
-// go test -v ./type_func -run=^TestRand$ -count=1
-// go test -v ./type_func -run=^TestRandSeed$ -count=1
-// go test ./type_func -bench=Rand -run=^$ -count=1
+// go test -v ./basic -run=^TestRand$ -count=1
+// go test -v ./basic -run=^TestRandSeed$ -count=1
+// go test ./basic -bench=Rand -run=^$ -count=1
+
 /*
 BenchmarkRand-8         100000000               11.43 ns/op
 BenchmarkRandV2-8       182933689                6.206 ns/op
