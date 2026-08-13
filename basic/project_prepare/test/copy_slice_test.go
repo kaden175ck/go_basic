@@ -1,7 +1,7 @@
 package test
 
 import (
-	projectprepare "dqq/go/basic/project_prepare"
+	projectprepare "shy/go_basic/basic/project_prepare"
 	"testing"
 )
 
