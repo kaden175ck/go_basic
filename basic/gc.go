@@ -115,5 +115,5 @@ func main41() {
 }
 
 // go run -gcflags=-m ./type_func/gc.go
-// go run ./type_func/gc.go
+// go run ./basic/gc.go
 // go tool trace data/trace.out
