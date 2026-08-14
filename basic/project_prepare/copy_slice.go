@@ -1,4 +1,4 @@
-package project_prepare
+package projectprepare
 
 // CopySlice 把切片src里的元素拷贝到dest里，返回成功拷贝的元素个数
 func CopySlice[T any](dest, src []T) int {
