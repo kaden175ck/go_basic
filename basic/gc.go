@@ -42,8 +42,32 @@ const (
 // 所有的垃圾回收都是针对堆的
 func gc() {
 	// Write to the trace file.
-	f, _ := os.Create("data/trace.out")
-	trace.Start(f)
+	// 创建 data 文件夹。
+	// 如果文件夹已经存在，MkdirAll 也不会报错。
+	createDirectoryError := os.MkdirAll("data", 0755)
+	if createDirectoryError != nil {
+		fmt.Println("创建 data 文件夹失败：", createDirectoryError)
+		return
+	}
+
+	// 在 data 文件夹中创建 trace.out 文件。
+	traceFile, createFileError := os.Create("data/trace.out")
+	if createFileError != nil {
+		fmt.Println("创建 trace 文件失败：", createFileError)
+		return
+	}
+
+	// 函数结束前关闭文件。
+	defer traceFile.Close()
+
+	// 开始记录程序运行信息。
+	startTraceError := trace.Start(traceFile)
+	if startTraceError != nil {
+		fmt.Println("启动 trace 失败：", startTraceError)
+		return
+	}
+
+	// gc 函数结束前停止记录。
 	defer trace.Stop()
 
 	// Set the target percentage for the garbage collector. Default is 100%.
@@ -109,11 +133,13 @@ func performMemoryIntensiveTask(task int) int {
 	return result
 }
 
-func main41() {
+func main() {
 	stack_heap()
-	// gc() // 程序运行完之后生成一个文件data/trace.out, 然后执行 go tool trace data/trace.out
+	gc() // 程序运行完之后生成一个文件data/trace.out, 然后执行 go tool trace data/trace.out
 }
 
-// go run -gcflags=-m ./type_func/gc.go
+// go run -gcflags=-m ./basic/gc.go
+// go run -gcflags=-m ./gc.go
 // go run ./basic/gc.go
 // go tool trace data/trace.out
+// 可以看到打开浏览器可以看到运行过程触发了很多次gc，不好，需要avoid
