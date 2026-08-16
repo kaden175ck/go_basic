@@ -12,11 +12,11 @@ func CopySlice[T any](dest, src []T) int {
 	return i
 }
 
-var A int
+// var A int
 
-type User struct {
-	Name string
-	age  int
-}
+// type User struct {
+// 	Name string
+// 	age  int
+// }
 
-type Ifc interface{}
+// type Ifc interface{}

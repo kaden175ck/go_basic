@@ -10,6 +10,8 @@ func TestCopySlice(t *testing.T) {
 	var src, dest []int16
 	src = []int16{1, 2, 3, 4}
 	var c, n int
+	// _ = src[0] / src[1]
+	//这个代码是如果我们的copy函数直接使用any不用泛型，后面就需要很多强制类型转换，所以使用泛型
 
 	c = len(src) - 1
 	dest = make([]int16, c)
