@@ -12,7 +12,8 @@ func CopySlice[T any](dest, src []T) int {
 	return i
 }
 
-// 这个没啥用暂时，现在还没用
+// 这个是在讲可见性的，就是变量，结构体，函数都必须要大写
+// 这样其他包可以访问到，否则是不行的
 // var A int
 
 // type User struct {
