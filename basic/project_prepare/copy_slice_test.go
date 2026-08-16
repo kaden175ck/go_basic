@@ -1,3 +1,6 @@
+// 外放的test推荐，除非test文件特别多，否则就不要放在一个专门的test文件夹下面，这种test就可以了，
+// 注意package name
+// 这种是合理的
 package projectprepare_test
 
 import (

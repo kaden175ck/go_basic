@@ -12,6 +12,7 @@ func CopySlice[T any](dest, src []T) int {
 	return i
 }
 
+// 这个没啥用暂时，现在还没用
 // var A int
 
 // type User struct {
