@@ -1,6 +1,7 @@
 // 外放的test推荐，除非test文件特别多，否则就不要放在一个专门的test文件夹下面，这种test就可以了，
-// 注意package name
-// 这种是合理的
+// 注意package name,他和放在test文件夹下的包名不一样，虽然这个包你也可以直接
+// 也可以直接package projectprepare但是按照规范最好后面加test
+// 这种是合理的，但是因为你package name变了，所以你就得import一下当前这个包了
 package projectprepare_test
 
 import (
