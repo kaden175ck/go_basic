@@ -6,6 +6,7 @@ import (
 	"os"
 )
 
+// 这份代码是关于写文件和相对路径的问题和用bufio写文件
 func WriteFile() {
 	// 如果使用go test，则相对路径是相对于xxx_test.go文件的路径。
 	// 如果使用go run或编译后直接运行，则相对路径是相对于执行命令时所在的路径。

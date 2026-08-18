@@ -8,6 +8,7 @@ import (
 	"strings"
 )
 
+// 读文件和用bufio读文件
 func ReadFile() {
 	if fin, err := os.Open("../data/verse.txt"); err != nil {
 		fmt.Printf("open file faied: %v\n", err) //比如文件不存在
