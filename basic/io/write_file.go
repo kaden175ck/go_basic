@@ -20,6 +20,9 @@ func WriteFile() {
 		fout.Write([]byte("笑我如今"))
 		fout.WriteString("\n")
 	}
+	// 下面这样写不合法，因为已经超出了fout和err的作用域
+	// _ = fout
+	// _ = err
 }
 
 func WriteFileWithBuffer() {
