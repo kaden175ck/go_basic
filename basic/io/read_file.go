@@ -14,6 +14,7 @@ func ReadFile() {
 		fmt.Printf("open file faied: %v\n", err) //比如文件不存在
 	} else {
 		defer fin.Close()
+		// 这样写说明长度和容量都是100
 		bs := make([]byte, 100)
 		fin.Read(bs)
 		fmt.Println(string(bs))
@@ -22,6 +23,7 @@ func ReadFile() {
 		fin.Read(bs)
 		fmt.Println(string(bs))
 
+		// 再次回到文件起始位置再开始
 		fin.Seek(0, 0)
 		const BATCH = 10
 		buffer := make([]byte, BATCH)
