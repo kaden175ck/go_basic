@@ -1,8 +1,10 @@
 package io_test
 
 import (
+	"fmt"
 	"shy/go_basic/basic/io"
 	"testing"
+	"time"
 )
 
 func TestWriteFile(t *testing.T) {
@@ -85,14 +87,14 @@ func TestReadFileWithBuffer(t *testing.T) {
 // 	io.PipeIO()
 // }
 
-// func TestBufferedFileWriter(t *testing.T) {
-// 	t1 := time.Now()
-// 	io.WriteDirect("../data/no_buffer.txt")
-// 	t2 := time.Now()
-// 	io.WriteWithBuffer("../data/with_buffer.txt")
-// 	t3 := time.Now()
-// 	fmt.Printf("不用缓冲耗时%dms，用缓冲耗时%dms\n", t2.Sub(t1).Milliseconds(), t3.Sub(t2).Milliseconds())
-// }
+func TestBufferedFileWriter(t *testing.T) {
+	t1 := time.Now()
+	io.WriteDirect("../data/no_buffer.txt")
+	t2 := time.Now()
+	io.WriteWithBuffer("../data/with_buffer.txt")
+	t3 := time.Now()
+	fmt.Printf("不用缓冲耗时%dms，用缓冲耗时%dms\n", t2.Sub(t1).Milliseconds(), t3.Sub(t2).Milliseconds())
+}
 
 // go test -v ./io -run=^TestWriteFile$ -count=1
 // go test -v ./io -run=^TestReadFile$ -count=1

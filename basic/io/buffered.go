@@ -17,6 +17,7 @@ type BufferedFileWriter struct {
 	fout           *os.File //文件句柄
 }
 
+// 结构体构造函数
 func NewWriter(fout *os.File, bufferSize int) *BufferedFileWriter {
 	return &BufferedFileWriter{
 		buffer:         make([]byte, bufferSize), //len=cap=bufferSize
