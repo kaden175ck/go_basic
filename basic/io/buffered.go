@@ -56,8 +56,8 @@ func append2(dest []byte, index int, src []byte) {
 }
 
 // 向文件中写入内容。（大概率只是写入了缓冲，还没有真正写入磁盘）
-func (writer *BufferedFileWriter) WriteString(content string) {
-	writer.Write([]byte(content))
+func (w *BufferedFileWriter) WriteString(cont string) {
+	w.Write([]byte(cont))
 }
 
 // 直接写文件
