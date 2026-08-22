@@ -32,13 +32,13 @@ func TestReadFileWithBuffer(t *testing.T) {
 // 	io.MergeFile("../img/图像分割", "../img/图像合并.png")
 // }
 
-// func TestCreateFile(t *testing.T) {
-// 	io.CreateFile("../data/poem.txt")
-// }
+func TestCreateFile(t *testing.T) {
+	io.CreateFile("../data/poem.txt")
+}
 
-// func TestWalkDir(t *testing.T) {
-// 	io.WalkDir("../data")
-// }
+func TestWalkDir(t *testing.T) {
+	io.WalkDir("../data")
+}
 
 // func TestCompress(t *testing.T) {
 // 	io.Compress("../img/logo.png", "../img/logo.png.gzip", io.GZIP)

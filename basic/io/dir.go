@@ -11,6 +11,7 @@ func CreateFile(fileName string) {
 	if file, err := os.Create(fileName); err != nil {
 		fmt.Printf("create file faied: %v\n", err)
 	} else {
+		defer file.Close()
 		file.Chmod(0o666)                //设置文件权限，八进制
 		fmt.Printf("fd=%d\n", file.Fd()) //获取文件描述符file descriptor，这是一个整数
 		file.WriteString("多情应笑我\n")
@@ -19,16 +20,16 @@ func CreateFile(fileName string) {
 		fmt.Printf("modify time %s\n", info.ModTime())
 		fmt.Printf("mode %v\n", info.Mode()) //-rw-rw-rw-
 		fmt.Printf("file name %s\n", info.Name())
-		fmt.Printf("size %dB\n", info.Size()) // 16B
+		fmt.Printf("size %dB\n", info.Size()) // 16Bytes16个字节
 	}
 
 	os.Mkdir("../data/sys", os.ModePerm)          //创建目录并设置权限
 	os.MkdirAll("../data/sys/a/b/c", os.ModePerm) //增强版Mkdir，沿途的目录不存在时会一并创建
 
-	// os.Rename("../data/sys/a", "../data/sys/p")       //给文件或目录重命名
-	// os.Rename("../data/sys/p/b/c", "../data/sys/p/c") //Rename还可以实现move的功能
+	os.Rename("../data/sys/a", "../data/sys/p")       //给文件或目录重命名
+	os.Rename("../data/sys/p/b/c", "../data/sys/p/c") //Rename还可以实现move的功能
 
-	// os.Remove("../data/sys")    //删除文件或目录，目录不为空时才能删除成功
+	os.Remove("../data/sys") //删除文件或目录，目录不为空时才能删除成功，这个就会失败，因为sys下面还有目录
 	// os.RemoveAll("../data/sys") //增强版Remove，所有子目录会递归删除
 }
 
