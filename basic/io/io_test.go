@@ -23,14 +23,14 @@ func TestReadFileWithBuffer(t *testing.T) {
 	io.ReadFileWithBuffer()
 }
 
-// func TestSplitFile(t *testing.T) {
-// 	imgFile := "../img/logo.png"
-// 	io.SplitFile(imgFile, "../img/图像分割", 4)
-// }
+func TestSplitFile(t *testing.T) {
+	imgFile := "../img/测试图片.png"
+	io.SplitFile(imgFile, "../img/图像分割文件存放", 4)
+}
 
-// func TestMergeFile(t *testing.T) {
-// 	io.MergeFile("../img/图像分割", "../img/图像合并.png")
-// }
+func TestMergeFile(t *testing.T) {
+	io.MergeFile("../img/图像分割文件存放", "../img/图像合并.png")
+}
 
 func TestCreateFile(t *testing.T) {
 	io.CreateFile("../data/poem.txt")
