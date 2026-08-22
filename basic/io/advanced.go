@@ -9,11 +9,11 @@ import (
 )
 
 func LimitReader() {
-	reader := strings.NewReader("daqiaoqiao")
+	reader := strings.NewReader("shyreader")
 	limitReader := io.LimitReader(reader, 6) //limitReader截取了reader的前6个字节
 	content := make([]byte, 100)
 	if n, err := limitReader.Read(content); err == nil {
-		fmt.Printf("read %s\n", string(content[:n])) //daqiao
+		fmt.Printf("read %s\n", string(content[:n])) //shyre
 	}
 	if _, err := limitReader.Read(content); err == io.EOF { //从limitReader里已读不出任何内容
 		fmt.Println("no more data available")
